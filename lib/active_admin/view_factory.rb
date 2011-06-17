@@ -16,6 +16,6 @@ module ActiveAdmin
               :show_page          => ActiveAdmin::Views::Pages::Show,
               :new_page           => ActiveAdmin::Views::Pages::New,
               :edit_page          => ActiveAdmin::Views::Pages::Edit
-
+    register  :abstract_page      => ActiveAdmin::Views::Pages::AbstractAction
   end
 end

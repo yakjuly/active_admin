@@ -78,7 +78,7 @@ module ActiveAdmin
     end
 
     protected
-
+    
     # By default Rails will render un-implemented actions when the view exists. Becuase Active
     # Admin allows you to not render any of the actions by using the #actions method, we need
     # to check if they are implemented.
@@ -112,7 +112,11 @@ module ActiveAdmin
 
     # Returns the renderer class to use for the given action.
     def renderer_for(action)
-      active_admin_application.view_factory["#{action}_page"]
+      if %w(index new create edit update destroy show).include?(action.to_s)
+        active_admin_application.view_factory["#{action}_page"]
+      else
+        active_admin_application.view_factory["abstract_page"]
+      end
     end
     helper_method :renderer_for
   end

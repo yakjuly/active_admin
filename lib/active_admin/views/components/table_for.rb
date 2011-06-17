@@ -60,10 +60,18 @@ module ActiveAdmin
       end
 
       def build_table_header(col)
-        if sortable? && col.sortable?
-          build_sortable_header_for(col.title, col.sort_key)
+        if col.title.blank?
+          i18n_title = col.title
         else
-          th(col.title)
+          i18n_title = I18n.backend.send :lookup, I18n.locale, col.title, [:activerecord, :attributes, active_admin_config.resource_name.downcase]
+          i18n_title ||= I18n.backend.send :lookup, I18n.locale, col.title, [:activerecord, :attributes, :common]
+          i18n_title ||= col.title
+        end
+        
+        if sortable? && col.sortable?
+          build_sortable_header_for(i18n_title, col.sort_key)
+        else
+          th(i18n_title)
         end
       end
 

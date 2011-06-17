@@ -30,9 +30,9 @@ module ActiveAdmin
         
         content_tag :li, :id => item.dom_id, :class => [("current" if current?(item)), ("has_nested" unless item.children.blank?)].compact.join(" ") do
           unless item.children.blank?
-            link_to(item.name, item.url || "#") + render_nested_menu(item)
+            link_to(t(item.name, :scope => "active_admin.menu"), item.url || "#") + render_nested_menu(item)
           else
-            link_to item.name, item.url
+            link_to t(item.name, :scope => "active_admin.menu"), item.url
           end
         end
       end

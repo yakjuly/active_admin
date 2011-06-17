@@ -19,7 +19,8 @@ module ActiveAdmin
             end
           end
           name = part.titlecase if name == ""
-          crumbs << link_to(name, "/" + parts[0..index].join('/'))
+          i18n_name = name.match(/^\d+$/) ? name : t(name, :scope => "menu")
+          crumbs << link_to(i18n_name, "/" + parts[0..index].join('/'))
         end
         crumbs
       end
