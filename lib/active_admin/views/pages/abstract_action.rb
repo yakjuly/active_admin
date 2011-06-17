@@ -1,7 +1,8 @@
+require "active_admin/views/pages/base"
+
 module ActiveAdmin
   module Views
     module Pages
-      
       class AbstractAction < Base
 
         def title
