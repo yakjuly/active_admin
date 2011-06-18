@@ -115,7 +115,7 @@ module ActiveAdmin
       if %w(index new create edit update destroy show).include?(action.to_s)
         active_admin_application.view_factory["#{action}_page"]
       else
-        active_admin_application.view_factory["abstract_page"]
+        active_admin_application.view_factory["custom_page"]
       end
     end
     helper_method :renderer_for

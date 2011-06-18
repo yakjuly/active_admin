@@ -3,7 +3,7 @@ require "active_admin/views/pages/base"
 module ActiveAdmin
   module Views
     module Pages
-      class AbstractAction < Base
+      class Custom < Base
 
         def title
           params[:action].to_s.titleize

@@ -15,7 +15,7 @@ module ActiveAdmin
               :index_page         => ActiveAdmin::Views::Pages::Index,
               :show_page          => ActiveAdmin::Views::Pages::Show,
               :new_page           => ActiveAdmin::Views::Pages::New,
-              :edit_page          => ActiveAdmin::Views::Pages::Edit
-    register  :abstract_page      => ActiveAdmin::Views::Pages::AbstractAction
+              :edit_page          => ActiveAdmin::Views::Pages::Edit,
+              :custom_page        => ActiveAdmin::Views::Pages::Custom
   end
 end
